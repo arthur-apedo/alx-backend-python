@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
     Basic syntax:
         Program takes in an integer(max_delay=10)
@@ -7,6 +7,7 @@
 """
 import random
 import asyncio
+
 
 async def wait_random(max_delay: int = 10) -> float:
     res = random.uniform(0, max_delay)
