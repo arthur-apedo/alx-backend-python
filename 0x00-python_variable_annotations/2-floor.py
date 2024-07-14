@@ -8,5 +8,5 @@ def floor(n: float) -> int:
     """
         returns an int
     """
-    b = n//1
+    b = int(n//1)
     return b
