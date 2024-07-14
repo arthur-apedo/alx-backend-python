@@ -2,12 +2,12 @@
 """
 Duck-typed annotations for safely_get_value function
 """
-from typing import MutableMapping, Any, Union, TypeVar
+from typing import Mapping, Any, Union, TypeVar
 
 T = TypeVar('T')
 
 
-def safely_get_value(dct: MutableMapping[Any, Any], key: Any,
+def safely_get_value(dct: Mapping, key: Any,
                      default: Union[T, None] = None) -> Union[Any, T]:
     """
     Returns the value for the given key if it exists, otherwise
