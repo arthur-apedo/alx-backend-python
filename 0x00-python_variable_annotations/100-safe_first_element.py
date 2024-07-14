@@ -2,7 +2,7 @@
 """
     Duck-typed annotaions for safe_first_element function
 """
-from typing import Sequence, Any Union
+from typing import Sequence, Any, Union
 
 
 def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
