@@ -5,9 +5,8 @@
 from typing import Tuple
 
 
-def to_kv(k: str, v: int | float) -> Tuple[str, int | float]:
+def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     """
         returns a tuple
     """
-    return tuple(k,v)
-
+    return (k, float(v ** 2))
