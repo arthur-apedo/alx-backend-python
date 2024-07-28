@@ -3,7 +3,7 @@
     Parameterize and patch decorators
 """
 import unittest
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch, MagicMock, PropertyMock
 from parameterized import parameterized
 from client import GithubOrgClient
 
@@ -25,3 +25,16 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(githuborgclient.org(), response)
         mock_obj.assert_called_once_with(
                 "https://api.github.com/orgs/{}".format(org))
+
+    def test_public_repos_url(self):
+        """ Tests the _public_repos_url property """
+        with patch(
+                "client.GithubOrgClient.org",
+                new_callable=PropertyMock,
+                ) as mock_obj:
+            mock_obj.return_value = {
+                    'repos_url': 'https://api.github.com/users/google/repos'}
+            self.assertEqual(
+                    GithubOrgClient('google')._public_repos_url,
+                    "https://api.github.com/users/google/repos"
+                    )
