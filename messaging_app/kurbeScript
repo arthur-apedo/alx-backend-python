@@ -1,0 +1,18 @@
+!#/bin/bash
+# KubeScript - setsup kebernetes locally using minikube
+
+# exits on any error
+set -e
+
+echo "Starting Minikube cluster================"
+minikube start
+
+echo "Verifying status================="
+kubectl cluster-info
+
+echo " Available pods***************"
+kubectl get pods -A
+
+echo "Kub cluster is up and running"
+
+
